@@ -61,46 +61,27 @@ var projects = {
         description: "A site to market a Web Service. This site is fully responsive and will adapt to any screen. Made using Bootstrap 4.",
         images: [
             "images/project1.png",
-            "images/project1-2.png"
+            "images/project1-2.png",
+            "images/project1-3.png"
         ]
     }]
 };
 
 
+bio.display = function() {
+    for (contact in bio.contacts) {
+        var formattedContact = HTMLcontactGeneric.replace("%contact%", contact).replace("%data%", bio.contacts[contact]);
 
-function contactInfo() {
-    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-    $("#topContacts").append(formattedMobile);
+        $("#topContacts").append(formattedContact);
+        $("#footerContacts").append(formattedContact);
+    }
 
-    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-    $("#topContacts").append(formattedEmail);
-
-    var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-    $("#topContacts").append(formattedTwitter);
-
-    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-    $("#topContacts").append(formattedGithub);
-
-    var formattedYoutube = HTMLyoutube.replace("%data%", bio.contacts.youtube);
-    $("#topContacts").append(formattedYoutube);
-
-    var formattedBlog = HTMLblog.replace("%data%", bio.contacts.blog);
-    $("#topContacts").append(formattedBlog);
-
-    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-    $("#topContacts").append(formattedLocation);
-
-    $("#footerContacts").append(formattedMobile);
-    $("#footerContacts").append(formattedEmail);
-    $("#footerContacts").append(formattedTwitter);
-    $("#footerContacts").append(formattedGithub);
-    $("#footerContacts").append(formattedYoutube);
-    $("#footerContacts").append(formattedBlog);
-    $("#footerContactst").append(formattedLocation);
-}
-
-function bioDisplay() {
-
+    //    for(i = 0; i < bio.contacts.length; i++ ) {
+    //        var formattedContact = HTMLcontactGeneric.replace("%contact%", bio.contacts[i]).replace("%data%", bio.contacts[i]);
+    //
+    //        $("#topContacts").append(formattedContact);
+    //        $("#footerContacts").append(formattedContact);
+    //    };
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
     $("#header").prepend(formattedRole);
 
@@ -124,11 +105,9 @@ function bioDisplay() {
             skillCount++;
         }
     }
+};
 
-
-}
-
-function displayWork() {
+work.display = function() {
     for (i = 0; i < work.jobs.length; i++) {
         $("#workExperience").append(HTMLworkStart);
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
@@ -142,7 +121,7 @@ function displayWork() {
         var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
         $(".work-entry:last").append(formattedDescription);
     }
-}
+};
 
 $(document).click(function(loc) {
     var x = loc.pageX;
@@ -162,7 +141,7 @@ function inName(name) {
     return name[0] + " " + name[1];
 }
 
-function displayProjects() {
+projects.display = function() {
     for (i = 0; i < projects.projects.length; i++) {
         $("#projects").append(HTMLprojectStart);
 
@@ -181,9 +160,9 @@ function displayProjects() {
             $(".project-entry:last").append(formattedImage);
         }
     }
-}
+};
 
-function displayEducation() {
+education.display = function() {
 
     for (i = 0; i < education.schools.length; i++) {
         $("#education").append(HTMLschoolStart);
@@ -221,17 +200,16 @@ function displayEducation() {
         $(".onlineEducation-entry:last").append(formattedOnlineDates);
 
         // I placed the URL within the Title links for better UX (Below is the code needed if you want to see ugly links.)
-        // var formattedOnlineUrl = HTMLonlineURL.replace("%data%" , education.onlineCourses[i].url);
-        // $(".onlineEducation-entry:last").append(formattedOnlineUrl);
+        var formattedOnlineUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
+        $(".onlineEducation-entry:last").append(formattedOnlineUrl);
     }
-}
+};
 
 
 
-bioDisplay();
+bio.display();
 $("#main").append(internationalizeButton);
-displayEducation();
+education.display();
 $("#mapDiv").append(googleMap);
-contactInfo();
-displayProjects();
-displayWork();
+projects.display();
+work.display();
