@@ -44,12 +44,14 @@ var work = {
         employer: "US Army",
         title: "Army Specialist",
         dates: "2013-current",
-        description: "The primary role of 68W healthcare specialists in the U.S. Army is providing medical treatment to wounded soldiers. Medics provide initial emergency medical care, evacuation, and supervision to other soldiers with medical training (such as Combat Lifesavers) as well as provide medical advice to unit chains of command."
+        description: "The primary role of 68W healthcare specialists in the U.S. Army is providing medical treatment to wounded soldiers. Medics provide initial emergency medical care, evacuation, and supervision to other soldiers with medical training (such as Combat Lifesavers) as well as provide medical advice to unit chains of command.",
+        location: "New York"
     }, {
         employer: "Rockaway Party Supply Store (Family Owned)",
         title: "Cashier",
         dates: "2009-2013",
-        description: "Responsible for taking money in the form of cash, check, or credit card from patrons in exchange for food or services. Worked in a team to serve patrons daily. Scans items, provides change, balances drawer, and processes card transactions."
+        description: "Responsible for taking money in the form of cash, check, or credit card from patrons in exchange for food or services. Worked in a team to serve patrons daily. Scans items, provides change, balances drawer, and processes card transactions.",
+        location: "Queens, NY"
     }]
 };
 
@@ -135,7 +137,10 @@ work.display = function() {
         $(".work-entry:last").append(formattedDates);
 
         var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
-        $(".work-entry:last").append(formattedDescription);
+        $(".work-entry:last").append(formattedDescription); 
+        
+        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
+        $(".work-entry:last").append(formattedLocation);
     }
 };
 
