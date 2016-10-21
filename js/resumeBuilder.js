@@ -4,12 +4,12 @@ var bio = {
     role: "Web Developer",
     contacts: {
         email: "JoelRajkumar@yahoo.com",
-        mobile: "646-221-5421",
-        github: "joelkraj",
-        twitter: "@joelkraj",
-        location: "New York",
-        blog: "irldevguy.com",
-        youtube: "@irldevguy"
+        "mobile": "646-221-5421",
+        "github": "joelkraj",
+        "twitter": "@joelkraj",
+        "location": "New York",
+        "blog": "irldevguy.com",
+        "youtube": "@irldevguy"
 
     },
     welcomeMsg: "Hello there! I am a hard working Developer and Student!",
@@ -69,19 +69,35 @@ var projects = {
 
 
 bio.display = function() {
-    for (contact in bio.contacts) {
-        var formattedContact = HTMLcontactGeneric.replace("%contact%", contact).replace("%data%", bio.contacts[contact]);
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    $("#topContacts").append(formattedMobile);
 
-        $("#topContacts").append(formattedContact);
-        $("#footerContacts").append(formattedContact);
-    }
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    $("#topContacts").append(formattedEmail);
 
-    //    for(i = 0; i < bio.contacts.length; i++ ) {
-    //        var formattedContact = HTMLcontactGeneric.replace("%contact%", bio.contacts[i]).replace("%data%", bio.contacts[i]);
-    //
-    //        $("#topContacts").append(formattedContact);
-    //        $("#footerContacts").append(formattedContact);
-    //    };
+    var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+    $("#topContacts").append(formattedTwitter);
+
+    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+    $("#topContacts").append(formattedGithub);
+
+    var formattedYoutube = HTMLyoutube.replace("%data%", bio.contacts.youtube);
+    $("#topContacts").append(formattedYoutube);
+
+    var formattedBlog = HTMLblog.replace("%data%", bio.contacts.blog);
+    $("#topContacts").append(formattedBlog);
+
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+    $("#topContacts").append(formattedLocation);
+
+    $("#footerContacts").append(formattedMobile);
+    $("#footerContacts").append(formattedEmail);
+    $("#footerContacts").append(formattedTwitter);
+    $("#footerContacts").append(formattedGithub);
+    $("#footerContacts").append(formattedYoutube);
+    $("#footerContacts").append(formattedBlog);
+    $("#footerContactst").append(formattedLocation);
+
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
     $("#header").prepend(formattedRole);
 
