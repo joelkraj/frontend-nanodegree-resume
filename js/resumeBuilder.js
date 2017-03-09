@@ -23,7 +23,7 @@ var education = {
         location: "Stony Brook, NY",
         degree: "Bachelors(inprogress)",
         major: "CS",
-        dates: "2015, 2017, 2018",
+        dates: "2015",
         url: "https://www.stonybrook.edu"
     }],
     onlineCourses: [{
@@ -46,12 +46,6 @@ var work = {
         dates: "2013-current",
         description: "The primary role of 68W healthcare specialists in the U.S. Army is providing medical treatment to wounded soldiers. Medics provide initial emergency medical care, evacuation, and supervision to other soldiers with medical training (such as Combat Lifesavers) as well as provide medical advice to unit chains of command.",
         location: "New York"
-    }, {
-        employer: "Rockaway Party Supply Store (Family Owned)",
-        title: "Cashier",
-        dates: "2009-2013",
-        description: "Responsible for taking money in the form of cash, check, or credit card from patrons in exchange for food or services. Worked in a team to serve patrons daily. Scans items, provides change, balances drawer, and processes card transactions.",
-        location: "Queens, NY"
     }]
 };
 
